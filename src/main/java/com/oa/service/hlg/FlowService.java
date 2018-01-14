@@ -21,8 +21,8 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.oa.dao.jpa.LeaveDao;
-import com.oa.dao.jpa.OaflowDao;
+import com.oa.dao.jpa.IOaLeaveDao;
+import com.oa.dao.jpa.IOaflowDao;
 import com.oa.pojos.OaFlow;
 import com.oa.vo.hlg.OaFlowVo;
 
@@ -30,9 +30,9 @@ import com.oa.vo.hlg.OaFlowVo;
 @Transactional
 public class FlowService {
 	@Autowired
-	private LeaveDao leaveDao;
+	private IOaLeaveDao leaveDao;
 	@Autowired
-	private OaflowDao oaflowDao;
+	private IOaflowDao oaflowDao;
 	
 	/**
 	 * 查询待办流程

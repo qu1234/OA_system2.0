@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.oa.pojos.OaEmp;
 
-public interface IEmpdao extends JpaSpecificationExecutor<OaEmp>,JpaRepository<OaEmp, String>{
+public interface IOaEmpDao extends JpaSpecificationExecutor<OaEmp>,JpaRepository<OaEmp, String>{
 	
 	@Query("select e from OaEmp e")
 	public List<OaEmp> queryEmp(Pageable p);
@@ -18,4 +18,12 @@ public interface IEmpdao extends JpaSpecificationExecutor<OaEmp>,JpaRepository<O
 	
 	@Query("select count(e) from OaEmp e")
 	public int queryEmpcount();
+	/**
+	 * 根据部门编号查找员工
+	 * @author qh
+	 * @param deptId
+	 * @return
+	 */
+	@Query(nativeQuery=true,value="select oa_emp.emp_id as empId , oa_emp.emp_name as empName  FROM oa_emp  where oa_emp.dept_id=?1")
+	public List<Object[]> queryEmpByDeptId(String deptId);
 }

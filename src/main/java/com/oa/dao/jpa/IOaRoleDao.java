@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.oa.pojos.OaRole;
 
-public interface OaRoleDao extends JpaRepository<OaRole, Integer>{
+public interface IOaRoleDao extends JpaRepository<OaRole, Integer>{
 	
 	/**
 	 * 查找所有角色

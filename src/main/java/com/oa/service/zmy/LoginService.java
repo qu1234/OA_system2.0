@@ -3,8 +3,8 @@ package com.oa.service.zmy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.oa.dao.jpa.OaEmpDao;
-import com.oa.dao.jpa.OaPassWordDao;
+import com.oa.dao.jpa.IOaEmpDao;
+import com.oa.dao.jpa.IOaPassWordDao;
 import com.oa.pojos.OaEmp;
 import com.oa.pojos.OaPassword;
 
@@ -12,9 +12,9 @@ import com.oa.pojos.OaPassword;
 public class LoginService {
 
 	@Autowired
-	OaEmpDao eDao;
+	IOaEmpDao eDao;
 	@Autowired
-	OaPassWordDao pDao;
+	IOaPassWordDao pDao;
 	
 	public OaEmp vaildatorLogin(String userName,String password){
 		OaEmp emp = eDao.findOne(userName);

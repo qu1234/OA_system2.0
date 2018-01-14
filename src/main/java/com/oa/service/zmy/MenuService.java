@@ -12,7 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.oa.dao.jpa.OaMenuDao;
+import com.oa.dao.jpa.IOaMenuDao;
 import com.oa.pojos.OaMenu;
 
 @Service
@@ -27,7 +27,7 @@ public class MenuService {
 	 * 
 	 */
 	@Autowired
-	OaMenuDao mDao;
+	IOaMenuDao mDao;
 
 	/**
 	 * @return 以树的结构返回所有菜单

@@ -4,7 +4,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import com.oa.pojos.OaMenu;
-public interface OaMenuDao extends JpaRepository<OaMenu, Integer>{
+public interface IOaMenuDao extends JpaRepository<OaMenu, Integer>{
 
 	/**
 	 * 获所有菜单

@@ -42,7 +42,7 @@
 		<div class="layui-row">
 			<div class="layui-col-xs2">
 				<div><button id="addMenu" class="layui-btn layui-btn-lg" style="margin-left: 20px;"><i class="iconfont icon-add"></i>添加菜单</button></div>
-				<ul class="easyui-tree" data-options="url:'',method:'get',animate:true,lines:true"></ul>
+				<ul class="easyui-tree" data-options="url:'/menuList?fatherId=0',method:'get',animate:true,lines:true"></ul>
 			</div>
 			<table class="layui-hide layui-col-xs10" id="table_menu" lay-filter="menu"></table>
 		</div>

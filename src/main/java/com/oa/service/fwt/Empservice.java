@@ -24,9 +24,9 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.oa.dao.jpa.IDeptdao;
-import com.oa.dao.jpa.IEmpdao;
-import com.oa.dao.jpa.IJobdao;
+import com.oa.dao.jpa.IOaDeptDao;
+import com.oa.dao.jpa.IOaEmpDao;
+import com.oa.dao.jpa.IOaJobDao;
 import com.oa.pojos.OaDept;
 import com.oa.pojos.OaEmp;
 import com.oa.pojos.OaJob;
@@ -36,13 +36,13 @@ import com.oa.vo.fwt.OaEmpvo;
 @Transactional
 public class Empservice {
 	@Autowired
-	IEmpdao empdao;
+	IOaEmpDao empdao;
 	
 	@Autowired
-	IDeptdao deptdao;
+	IOaDeptDao deptdao;
 	
 	@Autowired
-	IJobdao jobdao;
+	IOaJobDao jobdao;
 	
 	public List<OaJob> findJob(){
 		return jobdao.queryJob();

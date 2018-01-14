@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.oa.pojos.OaDept;
 
 
-public interface IDeptdao extends CrudRepository<OaDept, String>{
+public interface IOaDeptDao extends CrudRepository<OaDept, String>{
 	
 	@Query("select d from OaDept d")
 	public List<OaDept> queryDept();

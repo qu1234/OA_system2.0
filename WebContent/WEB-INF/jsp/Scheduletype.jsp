@@ -50,18 +50,24 @@ layui.use('table', function(){
 			 layui.use('layer', function(){
 					layer.open({
 	  					type: 2, 
-	  					content: 'to_AddScheduletype', //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
+	  					id:'layer',
+	  					content: 'to_AddScheduletypeFrom', //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
 	  					area: ['770px', '320px'],
 	  					skin:'layui-layer-molv',
-	  					
 	  					title: ['编辑类型', 'font-size:15px;'],
 	  					shade: [0.8, '#393D49'],
 	  					anim: 4,
 	  					closeBtn: 1,
 	  					resize:false,
+	  					 end: function () {
+	  		                location.reload();
+	  		            } 
 					});
 				});	
+			 
 		});
+		
+		
 	 }
 
 	 
@@ -70,31 +76,92 @@ layui.use('table', function(){
 	   var data = obj.data; //获得当前行数据
 	   var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
 	   var tr = obj.tr; //获得当前行 tr 的DOM对象
+	   var tishi="真的要删除";
+	   tishi+=data.shtName;
+	   tishi+="吗";
 	   if(layEvent == 'type_add'){ //设置人员 
 
 	   } else if(layEvent == 'type_detail'){ //删除 
-		   layer.open({ 
-					skin:'layui-layer-molv',
-					title: ['确定删除吗', 'font-size:15px;'],
-					
-					btn:['确定','取消'],
-					anim: 4,
-					closeBtn: 1,
-					resize:false,
+		   layer.confirm(tishi, function(index){
+			      obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+			      layer.close(index);
+			      //向服务端发送删除指令
+			      $.ajax({
+						type : "POST",//请求方式
+						url : "to_updatetypeState",//请求URL
+						data : {
+							shtId : data.shtId,
+						},//设置参数
+						success : function(msg) {//访问成功回调方法	
+							if(msg==true){
+								layer.msg('删除成功', {icon: 6}); 
+							}else{
+								layer.msg('删除失败', {icon: 5}); 
+							}
+							
+							
+						}
+					});
 			});
 		  
 	   } else if(layEvent == 'type_edit'){ //编辑
-	    
-	     
-	  
-	     
-	      //同步更新缓存对应的值
-	      obj.update({
-	        username: '123'
-	        ,title: 'xxx'
-	      });
+		   $.ajax({
+				type : "POST",//请求方式
+				url : "ObtainScheduletypeVo",//请求URL
+				data:{
+					shtId:data.shtId,
+				},
+				success : function(msg) {//访问成功回调方法	
+					if(msg!=null){
+						layer.open({
+		  					type: 2, 
+		  					id:'layer',
+		  					content: 'to_AddScheduletypeFrom', //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
+		  					area: ['770px', '320px'],
+		  					skin:'layui-layer-molv',
+		  					title: ['编辑类型', 'font-size:15px;'],
+		  					shade: [0.8, '#393D49'],
+		  					anim: 4,
+		  					closeBtn: 1,
+		  					resize:false,
+		  					success:function(layero,index){
+		  					  	var body = layer.getChildFrame('body', index);
+		  				    	body.find('input[name=shtId]').val(msg.shtId);
+		  				    	body.find('input[name=shtName]').val(msg.shtName);
+		  				    	body.find('textarea[name=shtRemark]').val(msg.shtRemark);
+		  				    	body.find('input[name=shtStatus]').val(msg.shtStatus);
+		  				    	if(msg.shtW1==1){
+		  				    		body.find('input[name=shtW1]').attr("checked","checked");
+		  				    	}
+		  				    	if(msg.shtW2==1){
+		  				    		body.find('input[name=shtW2]').attr("checked","checked");
+		  				    	}
+		  				    	if(msg.shtW3==1){
+		  				    		body.find('input[name=shtW3]').attr("checked","checked");
+		  				    	}
+		  				    	if(msg.shtW4==1){
+		  				    		body.find('input[name=shtW4]').attr("checked","checked");
+		  				    	}
+		  				    	if(msg.shtW5==1){
+		  				    		body.find('input[name=shtW5]').attr("checked","checked");
+		  				    	}
+		  				    	if(msg.shtW6==1){
+		  				    		body.find('input[name=shtW6]').attr("checked","checked");
+		  				    	}
+		  				    	if(msg.shtW7==1){
+		  				    		body.find('input[name=shtW7]').attr("checked","checked");
+		  				    	}
+		  					},
+		  					end: function () {
+		  		                location.reload();
+		  		            } 
+						});
+					}
+				}
+			});
 	    } 
 	 });
+
 }); 
 	
 </script>

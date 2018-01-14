@@ -10,7 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.oa.pojos.OaFlow;
 
-public interface OaflowDao extends JpaSpecificationExecutor<OaFlow>,JpaRepository<OaFlow, String>{
+public interface IOaflowDao extends JpaSpecificationExecutor<OaFlow>,JpaRepository<OaFlow, String>{
 	
 	/**
 	 * 查询所有待办流程记录

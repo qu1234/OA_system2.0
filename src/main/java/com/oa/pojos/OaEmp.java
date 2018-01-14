@@ -147,8 +147,8 @@ public class OaEmp implements Serializable {
 	private List<OaSalaryitme> oaSalaryitmes;
 
 	//bi-directional many-to-many association to OaScheduletype
-	@ManyToMany(mappedBy="oaEmps")
-	private List<OaScheduletype> oaScheduletypes;
+	/*@ManyToMany(mappedBy="oaEmps")
+	private List<OaScheduletype> oaScheduletypes;*/
 
 	//bi-directional many-to-one association to OaAttendance
 	@OneToMany(mappedBy="oaEmp")
@@ -582,13 +582,13 @@ public class OaEmp implements Serializable {
 		this.oaSalaryitmes = oaSalaryitmes;
 	}
 
-	public List<OaScheduletype> getOaScheduletypes() {
+	/*public List<OaScheduletype> getOaScheduletypes() {
 		return this.oaScheduletypes;
 	}
 
 	public void setOaScheduletypes(List<OaScheduletype> oaScheduletypes) {
 		this.oaScheduletypes = oaScheduletypes;
-	}
+	}*/
 
 	public List<OaAttendance> getOaAttendances() {
 		return this.oaAttendances;
@@ -1116,5 +1116,5 @@ public class OaEmp implements Serializable {
 	public void setOaTrainplans2(List<OaTrainplan> oaTrainplans2) {
 		this.oaTrainplans2 = oaTrainplans2;
 	}
-
+	
 }

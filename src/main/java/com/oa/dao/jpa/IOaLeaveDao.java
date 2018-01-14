@@ -8,6 +8,6 @@ import com.oa.pojos.OaLeave;
  * @author Administrator
  *
  */
-public interface LeaveDao extends CrudRepository<OaLeave, Long>{
+public interface IOaLeaveDao extends CrudRepository<OaLeave, Long>{
 	
 }

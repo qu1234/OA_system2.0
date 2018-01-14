@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.oa.pojos.OaJob;
 
-public interface IJobdao extends JpaRepository<OaJob,String>{
+public interface IOaJobDao extends JpaRepository<OaJob,String>{
 
 	@Query("select j from OaJob j")
 	public List<OaJob> queryJob();

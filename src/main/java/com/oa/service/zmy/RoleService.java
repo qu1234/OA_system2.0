@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.oa.dao.jpa.OaRoleDao;
+import com.oa.dao.jpa.IOaRoleDao;
 import com.oa.pojos.OaRole;
 
 @Service
@@ -14,7 +14,7 @@ import com.oa.pojos.OaRole;
 public class RoleService {
 	
 	@Autowired
-	OaRoleDao rDao;
+	IOaRoleDao rDao;
 	
 
 	/**

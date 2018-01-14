@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
  *
  */
 
-import com.oa.dao.jpa.LeaveDao;
-import com.oa.dao.jpa.OaflowDao;
+import com.oa.dao.jpa.IOaLeaveDao;
+import com.oa.dao.jpa.IOaflowDao;
 import com.oa.pojos.OaFlow;
 import com.oa.pojos.OaLeave;
 @Service
@@ -21,9 +21,9 @@ public class LeaveService {
 	
 	
 	@Autowired
-	private LeaveDao leaveDao;
+	private IOaLeaveDao leaveDao;
 	@Autowired
-	private OaflowDao oaflowDao;
+	private IOaflowDao oaflowDao;
 	
 	/**
 	 * 新建一个请假申请

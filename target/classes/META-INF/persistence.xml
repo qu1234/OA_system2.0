@@ -41,6 +41,7 @@
 	<class>com.oa.pojos.OaTurn</class>
 	<class>com.oa.pojos.OaVacation</class>
 	<class>com.oa.pojos.OaWhereabout</class>
+	
 	<properties>
                <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
                <property name="hibernate.show_sql" value="true" />

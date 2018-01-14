@@ -50,7 +50,7 @@ public class OaScheduletype implements Serializable {
 	private int shtW7;
 
 	//bi-directional many-to-many association to OaEmp
-	@ManyToMany
+	/*@ManyToMany
 	@JoinTable(
 		name="emp_paiban"
 		, joinColumns={
@@ -60,7 +60,7 @@ public class OaScheduletype implements Serializable {
 			@JoinColumn(name="emp_id")
 			}
 		)
-	private List<OaEmp> oaEmps;
+	private List<OaEmp> oaEmps;*/
 
 	public OaScheduletype() {
 	}
@@ -153,12 +153,12 @@ public class OaScheduletype implements Serializable {
 		this.shtW7 = shtW7;
 	}
 
-	public List<OaEmp> getOaEmps() {
+	/*public List<OaEmp> getOaEmps() {
 		return this.oaEmps;
 	}
 
 	public void setOaEmps(List<OaEmp> oaEmps) {
 		this.oaEmps = oaEmps;
-	}
+	}*/
 
 }

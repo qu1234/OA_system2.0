@@ -13,13 +13,19 @@ import com.oa.pojos.OaScheduletype;
  * @author qh
  *
  */
-public interface IScheduletypeDAO extends CrudRepository<OaScheduletype, Long>{
+public interface IOaScheduletypeDao extends CrudRepository<OaScheduletype, String>{
 	/**
 	 * 分页查询排班类型表
 	 * @param pageable
 	 * @return
 	 */
-	@Query("select s from OaScheduletype s order by s.shtId desc")
+	@Query("select s from OaScheduletype s where s.shtStatus=1 order by s.shtId desc")
 	public List<OaScheduletype>queryAllByPage(Pageable pageable);
+	/**
+	 * 查找最大的排班类型编号
+	 * @return
+	 */
+	@Query("select MAX(o.shtId) from OaScheduletype o")
+	public String queryMaxId();	
 
 }
