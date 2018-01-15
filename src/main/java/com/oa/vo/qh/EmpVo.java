@@ -1,8 +1,11 @@
 package com.oa.vo.qh;
 
+
 public class EmpVo {
 	private String empId;
 	private String empName;
+	private String deptId;
+	private String deptName;
 	public String getEmpId() {
 		return empId;
 	}
@@ -15,19 +18,20 @@ public class EmpVo {
 	public void setEmpName(String empName) {
 		this.empName = empName;
 	}
-	
-	public EmpVo(String empId, String empName) {
-		super();
-		this.empId = empId;
-		this.empName = empName;
+	public String getDeptId() {
+		return deptId;
 	}
-	
+	public void setDeptId(String deptId) {
+		this.deptId = deptId;
+	}
+	public String getDeptName() {
+		return deptName;
+	}
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
 	public EmpVo() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-	@Override
-	public String toString() {
-		return "EmpVo [empId=" + empId + ", empName=" + empName + "]";
 	}
 }

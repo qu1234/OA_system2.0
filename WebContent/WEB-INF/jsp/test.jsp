@@ -23,9 +23,10 @@
 
                 alert(day)
             }
-    }
-    </script>
+    	}
+      </script>
     开始日期：<input class="easyui-datetimebox" id="sd" data-options="onChange:onSelect" />
     结束日期：<input class="easyui-datetimebox" id="ed" data-options="onChange:onSelect" />
+
 </body>
 </html>

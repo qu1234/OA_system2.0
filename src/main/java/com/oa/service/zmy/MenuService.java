@@ -35,6 +35,9 @@ public class MenuService {
 	public List<Map<String, Object>> getMenuList(int fatherId) {
 		try {
 			List<OaMenu> list = mDao.findMenus();
+			for (OaMenu oaMenu : list) {
+				System.out.println(oaMenu);
+			}
 			return createTree(list, fatherId);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -146,7 +149,6 @@ public class MenuService {
 			e.printStackTrace();
 			return false;
 		}
-
 	}
 
 	/**
@@ -162,5 +164,4 @@ public class MenuService {
 			return null;
 		}
 	}
-
 }

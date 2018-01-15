@@ -1,17 +1,23 @@
 package com.oa.controller.qh;
 
+
+import java.util.List;
 import java.util.Map;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 import com.oa.pojos.OaScheduletype;
+import com.oa.service.qh.TreeNoteUtilService;
 import com.oa.service.qh.ScheduletypeService;
 import com.oa.vo.ReasonInformation;
-import com.oa.vo.qh.ScheduletypeVo;
 import com.oa.vo.qh.ScheduletypeVoFrom;
+
+
 
 /**
  * 排班类型controller
@@ -22,7 +28,8 @@ import com.oa.vo.qh.ScheduletypeVoFrom;
 public class ScheduletypeController {
 	@Autowired
 	private ScheduletypeService scheduletypeService;
-
+	@Autowired
+	private TreeNoteUtilService treeNoteUtilService;
 	/**
 	 * 进入排班类型界面
 	 * @return
@@ -87,8 +94,37 @@ public class ScheduletypeController {
 		return scheduletypeService.updateScheduletypeShtStatus(shtId);
 	}
 	
-	@RequestMapping("/to_findAllDept")
-	public void to_findAllDept() {
-		scheduletypeService.queryAllDept();
+/*	@RequestMapping("/to_findAllDept")
+	public @ResponseBody Map<String, Object> to_findAllDept() {
+		
+		List<Object> list1 = new ArrayList<>();
+		list1.add(new TreeVO(1, "aa", 1, "aa"));
+		list1.add(new TreeVO(2, "aa", 1, "aa"));
+		Map<String, Object> map1=new HashMap<>();
+		map1.put("children",list1);
+		List<Object> list = new ArrayList<>();
+		list.add(new TreeVO(3, "ab", 1, 4, map1, "1"));
+		list.add(new TreeVO(4, "bb", 1, "aa"));
+		
+		Map<String, Object> map=new HashMap<>();
+		map.put("aa",list);
+		return map;
+		//scheduletypeService.queryAllDept();
+	}*/
+	
+	/*@RequestMapping("/to_test")
+	public String to_test() {
+		return "test";
+		//scheduletypeService.queryAllDept();
+	}*/
+	
+	/*@RequestMapping("/to_findEmpGroupByDeptTree")
+	public @ResponseBody List<DeptTreeVo> to_findEmpGroupByDeptTree(String deptId,HttpServletRequest request) {
+		String id=request.getParameter("id");
+		return treeNoteUtilService.queryEmpGroupByDept(deptId, id);
+	}*/
+	@RequestMapping("/findDeptAndEmpTree")
+	public @ResponseBody List<Map<String, Object>> findDeptAndEmpTree() {
+		return treeNoteUtilService.queryAllDept();
 	}
 }

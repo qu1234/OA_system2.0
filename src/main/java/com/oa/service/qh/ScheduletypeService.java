@@ -20,7 +20,6 @@ import com.oa.dao.jpa.IOaScheduletypeDao;
 import com.oa.pojos.OaDept;
 import com.oa.pojos.OaScheduletype;
 import com.oa.vo.ReasonInformation;
-import com.oa.vo.qh.EmpVo;
 import com.oa.vo.qh.ScheduletypeVo;
 import com.oa.vo.qh.ScheduletypeVoFrom;
 
@@ -198,17 +197,28 @@ public class ScheduletypeService {
 			  return false;
 		}
 	}
-	/**
-	 * 
-	 */
-	public void queryAllDept() {
-		List<OaDept> queryDept = iOaDeptDao.queryDept();
-		for (OaDept oaDept : queryDept) {
-			findEmpByDeptId(oaDept.getDeptId());
+	
+	
+	
+	
+	
+/*	public void queryAllDept() {
+		List<OaDept> list = iOaDeptDao.queryDept();
+		Map<String, Object> map=new HashMap<>();
+		for (OaDept oaDept : list) {
+			//findEmpByDeptId(oaDept.getDeptId());
+			map.put("id", oaDept.getDeptId());
+			map.put("text", oaDept.getDeptName());
+			map.put("state", "closed");
+			
 		}
-		
-	}
-	public void findEmpByDeptId(String deptId) {
+		Map<String, Object> map=new HashMap<>();
+		map.put("data", list);
+		map.put("count",list.size());
+		map.put("code", 0);
+		return map;
+	}*/
+	/*public void findEmpByDeptId(String deptId) {
 		List<Object[]> queryEmpByDeptId = iOaEmpDao.queryEmpByDeptId(deptId);
 		List<EmpVo>list=new ArrayList<>();
 		for (Object[] objects : queryEmpByDeptId) {
@@ -219,5 +229,5 @@ public class ScheduletypeService {
 		for (EmpVo empVo : list) {
 			System.out.println(empVo);
 		}
-	}
+	}*/
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oa.vo.qh.attendanceCountVo;
 import com.oa.vo.qh.attendanceNotesVo;
-import com.oa.vo.qh.deptVo;
+import com.oa.vo.qh.DeptVo;
 
 @Controller
 public class KQTJController {
@@ -97,15 +97,15 @@ public class KQTJController {
 	 * 集中考勤页面部门下拉列表
 	 * @return
 	 */
-	@RequestMapping("/to_Select")
-	public @ResponseBody List<deptVo> to_Select() {
-		List<deptVo>list=new ArrayList<>();
-		list.add(new deptVo("1","人事部"));
-		list.add(new deptVo("2","总经办"));
-		list.add(new deptVo("3","财务部"));
-		list.add(new deptVo("4","采购部"));
+	/*@RequestMapping("/to_Select")
+	public @ResponseBody List<DeptVo> to_Select() {
+		List<DeptVo>list=new ArrayList<>();
+		list.add(new DeptVo("1","人事部"));
+		list.add(new DeptVo("2","总经办"));
+		list.add(new DeptVo("3","财务部"));
+		list.add(new DeptVo("4","采购部"));
 		return list;
-	}
+	}*/
 	/*@RequestMapping("/getLastDayOfMonth")
 	public @ResponseBody String getLastDayOfMonth(String da) {
 		

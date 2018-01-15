@@ -156,7 +156,7 @@
 				</ul>
 				<div class="layui-tab-content clildFrame">
 					<div class="layui-tab-item layui-show">
-						<iframe src="/to_Scheduletype"></iframe>
+						<iframe src="/powerSet"></iframe>
 					</div>
 				</div>
 			</div>
